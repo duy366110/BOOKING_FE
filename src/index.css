@@ -1,0 +1,63 @@
+:root {
+  --first-color: #003580;
+  --first-color-01: #134387;
+  --first-color-02: #febb02;
+  --box-shadown: 0 2px 8px 0 rgba(26,26,26,0.16);
+  --text-color-01: #1a1a1a;
+}
+
+html, body {
+  box-sizing: border-box;
+  font-size: 10px;
+  margin: 0px auto;
+  padding: 0px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* BLANK INFOR */
+.blank-infor {
+  color: var(--first-color);
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* FORM */
+.form-message {
+  background-color: #ff00003d;
+  border-radius: 3px;
+  color: var(--first-color);
+  font-size: 15px;
+  margin-bottom: 15px;
+  padding: 5px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.form-control label.Mui-focused {
+  color: var(--first-color);
+}
+
+/* DATE RANGER SEARCH */
+
+.rdrDayNumber, .rdrInRange, .rdrDay,  .rdrDay>span, .rdrStartEdge, .rdrEndEdge {
+  color: var(--first-color)!important;
+}
+
+@media screen and (max-width: 768px) {
+  .rdrMonths, .rdrMonth {
+    width: 100%!important;
+  }
+}

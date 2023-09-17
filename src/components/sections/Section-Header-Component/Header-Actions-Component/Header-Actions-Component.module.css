@@ -1,0 +1,76 @@
+.header-actions-component {
+    margin-bottom: 2.5rem;
+}
+
+.header-logo {
+    margin-bottom: 0px;
+}
+
+.header-logo  a {
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.header-user-email {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    overflow: hidden;
+    margin-bottom: 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 95px;
+}
+
+/* HAMBURGER BUTTON */
+.header-hamburger {
+    background-color: transparent;
+    border: unset;
+    outline: unset;
+    height: 25px;
+    padding: 0px;
+    position: relative;
+    width: 45px;
+}
+
+.header-hamburger::before, .header-hamburger::after, .header-hamburger span {
+    background-color: #ffffff;
+    content: '';
+    display: block;
+    height: 5px;
+    transition: all .3s ease;
+    width: 100%;
+}
+
+.header-hamburger::before, .header-hamburger::after {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+}
+
+.header-hamburger::after {
+    bottom: 0px;
+    top: unset;
+}
+
+.header-hamburger.active span {
+    opacity: 0;
+}
+
+.header-hamburger.active::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.header-hamburger.active::after {
+    bottom: 29%;
+    transform: translateY(-50%) rotate(-45deg);
+}

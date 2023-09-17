@@ -1,0 +1,33 @@
+.common-search-data-ranger-component {
+    position: relative;
+    width: 100%;
+}
+
+.common-search-data-ranger-component > div:first-child {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 7px 10px;
+    width: 100%;
+}
+
+.common-search-data-ranger-component > div:first-child svg {
+    font-size: 18px;
+}
+
+.common-search-data-ranger-component > div:first-child input {
+    font-size: 1.4rem;
+}
+
+ .date-ranger {
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+ }
+
+
+
+ @media screen and (max-width: 720px) {
+    .date-ranger > div {
+        width: 100%;
+     }
+ }

@@ -1,0 +1,77 @@
+.header-tab-left-component {
+    background-color: transparent;
+    left: -100%;
+    height: 100%;
+    position: fixed;
+    transition: all .3s ease;
+    top: 0px;
+    width: 100%;
+    z-index: 1100;
+}
+
+.header-tab-left-component.active {
+    left: 0%;
+}
+
+.tab-left-mask {
+    background-color: transparent;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;;
+}
+
+.tab-left-list {
+    background: var(--first-color);
+    border-right:2px solid #ffffff;
+    color: #ffffff;
+    height: 100%;
+    width: 250px;
+}
+
+.logo {
+    margin-bottom: 0px;
+}
+
+.logo a {
+    border-bottom: 2px solid #ffffff;
+    color: #ffffff;
+    display: block;
+    font-size: 23px;
+    padding: 15px;
+    text-decoration: none;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.navigator {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navigator li:not(:last-child) {
+    border-bottom: 1px solid #ffffff;
+}
+
+.navigator li a {
+    color: #ffffff;
+    display: block;
+    font-size: 16px;
+    letter-spacing: .3px;
+    padding: 15px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.navigator li a.active {
+    background-color: #104999;
+}
+
+.navigator li a svg {
+    font-size: 18px;
+}
+
+.navigator li a span {
+    margin-left: 5px;
+}

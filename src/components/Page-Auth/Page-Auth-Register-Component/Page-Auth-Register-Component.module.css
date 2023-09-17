@@ -1,0 +1,40 @@
+.auth-register-component {
+    width: 100%;
+}
+
+.auth-register-component form {
+    margin: 45px auto;
+    max-width: 450px;
+    min-width: 450px;
+    width: 450px;
+}
+
+.form-title {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.auth-register-component form div:nth-child(4) {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.auth-register-component form button {
+    background-color: var(--first-color);
+    color: #ffffff;
+    width: 100%;
+}
+
+.form-sugget {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.form-sugget a {
+    color: var(--first-color);
+    font-weight: 500;
+}

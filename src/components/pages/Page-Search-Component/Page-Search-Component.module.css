@@ -1,0 +1,60 @@
+.page-search-component {
+    width: 100%;
+}
+
+.search-wrapper {
+    padding: 3.5rem 0rem;
+}
+
+/* TAB SEARCH */
+.search-tab {
+    background-color: var(--first-color-02);
+    padding: 15px;
+    width: 100%;
+}
+
+.search-tab-label {
+    color: #1a1a1a;
+    display: flex;
+    font-size: 16px;
+    text-align: left;
+}
+
+.search-list-options {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 15px;
+}
+
+.search-list-options li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.search-list-options li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-list-options li label, .search-list-options li input {
+    font-size: 16px;
+    height: 30px;
+    margin-bottom: 0px;
+}
+
+.search-list-options li label {
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.search-list-options li input {
+    border: unset;
+    outline: unset;
+    padding: 0px 5px;
+    width: 50px;
+}
+
+.search-tab-btn > div, .search-tab-btn button {
+    width: 100%;
+}

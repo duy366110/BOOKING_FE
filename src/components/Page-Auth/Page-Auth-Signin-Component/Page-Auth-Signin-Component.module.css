@@ -1,0 +1,32 @@
+.page-auth-sigin-component {
+    width: 100%;
+}
+
+.form-title {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.button-component-custom {
+    width: 100%;
+}
+
+.page-auth-sigin-component form button {
+    background-color: var(--first-color);
+    color: #ffffff;
+    width: 100%;
+}
+
+.form-sugget {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.form-sugget a {
+    color: var(--first-color);
+    font-weight: 500;
+}

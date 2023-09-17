@@ -1,0 +1,27 @@
+.common-input-bootstrap-component {
+    margin-bottom: 15px;
+}
+
+.common-input-bootstrap-component  label {
+    display: block;
+    font-size: 1.7rem;
+    text-align: left;
+}
+
+.common-input-bootstrap-component input {
+    font-size: 1.5rem;
+    height: 4rem;
+}
+
+.common-input-bootstrap-component input[type="file"] {
+    padding: 3px;
+}
+
+.input-message {
+    color: #be0000;
+    display: block;
+    font-size: 1.3rem;
+    letter-spacing: .3px;
+    margin-top: 5px;
+    text-align: left;
+}

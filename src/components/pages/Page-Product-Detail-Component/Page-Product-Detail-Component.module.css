@@ -1,0 +1,85 @@
+.page-product-detail-component {
+    width: 100%;
+}
+
+.product-detail-wrapper {
+    padding: 3.5rem 0rem;
+    width: 100%;
+}
+
+/* INFOR */
+.detail-infor {
+    text-align: left;
+}
+
+.name-hotel {
+    color: var(--first-color);
+    letter-spacing: .3x;;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.detail-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5px;
+    text-align: left;
+}
+
+/* PHOTO */
+.detail-photos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 10px;
+    margin: 1.5rem 0rem;
+}
+
+.photo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* FOOTER */
+.name-room {
+    color: var(--first-color);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.detail-footer-price {
+    background-color: #ebf3ff;
+    height: 100%;
+    padding: 1.5rem;
+}
+
+.price-infor {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 320px) {
+    .photo-item {
+        height: 120px;
+        width: calc((100% / 2) - 10px);
+    }
+    
+    .photo-item img {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .photo-item {
+        height: 220px;
+        width: calc((100% / 3) - 10px);
+    }
+    
+    .photo-item img {
+        height: 100%;
+        width: 100%;
+    }
+}

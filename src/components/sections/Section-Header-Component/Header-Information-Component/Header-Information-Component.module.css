@@ -1,0 +1,21 @@
+.header-information-component {
+    color: #ffffff;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+.information-title {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    margin-bottom: 1rem;
+}
+
+.information-sub-title {
+    font-size: 17px;
+    letter-spacing: 0.3px;
+    margin-bottom: 1.5rem;
+}

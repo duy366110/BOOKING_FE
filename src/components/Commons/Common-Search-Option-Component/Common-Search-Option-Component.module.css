@@ -1,0 +1,93 @@
+.common-search-option-component {
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.search-option-infor {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.search-option-infor span {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    width: calc((100% / 3) - 3px);
+}
+
+.search-option-infor span svg {
+    color: #757575;
+    font-size: 18px;
+}
+
+.search-option-input {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(26,26,26,0.16);
+    bottom: -190px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    left: 0px;
+    padding: 20px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.option-label {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    row-gap: 15px;
+    justify-content: space-between;
+}
+
+.option-input {
+    border: 1px solid #dddddd;
+    display: flex;
+    align-items: center;
+}
+
+.option-item button, .option-item input {
+    border: unset;
+    outline: unset;
+    padding: 10px;
+}
+
+.option-item button svg {
+    color: var(--first-color);
+}
+
+.option-item input {
+    font-size: 15px;
+    padding: 0px;
+    text-align: center;
+    width: 50px;
+}
+
+@media  screen and (min-width: 320px) {
+    .search-option-input {
+        width: 100%;
+    }
+}
+
+@media  screen and (min-width: 768px) {
+    .search-option-input {
+        width: 350px;
+    }
+}

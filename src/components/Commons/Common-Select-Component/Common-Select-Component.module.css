@@ -1,0 +1,22 @@
+.common-select-component {
+    margin-bottom: 15px;
+}
+
+.form-control-select {
+    font-size: 1.5rem;
+    height: 4rem;
+}
+
+.form-control-select option {
+    background-color: var(--first-color);
+    color: #ffffff;
+}
+
+.input-message {
+    color: #be0000;
+    display: block;
+    font-size: 14px;
+    letter-spacing: .3px;
+    margin-top: 5px;
+    text-align: left;
+}

@@ -1,0 +1,12 @@
+.common-input-component div:before, .common-input-component div:after {
+    display: none;
+}
+
+.common-input-component label {
+    font-size: 1.5rem;
+}
+
+.common-input-component input {
+    background-color: #ffffff;
+    border-radius: 5px;
+}

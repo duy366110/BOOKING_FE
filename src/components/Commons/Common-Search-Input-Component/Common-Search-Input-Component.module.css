@@ -1,0 +1,22 @@
+.common-search-input-component {
+    width: 100%;
+}
+
+.common-search-input-component > div {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 7px 10px;
+    width: 100%;
+}
+
+.common-search-input-component > div::before, .common-search-input-component > div::after {
+    display: none;
+}
+
+.common-search-input-component > div svg {
+    font-size: 18px;
+}
+
+.common-search-input-component > div input {
+    font-size: 1.4rem;
+}

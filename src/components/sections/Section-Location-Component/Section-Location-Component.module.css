@@ -1,0 +1,59 @@
+.section-location-component {
+    padding: 5rem 0rem 1.5rem;
+    width: 100%;
+}
+
+.location-wrapper {
+    border-radius: 10px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.thumbnail {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 285px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.thumbnail::after {
+    background-color: #00000014;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.thumbnail img {
+    height: 100%;
+    width: 100%;
+}
+
+.description {
+    bottom: 0px;
+    color: #ffffff;
+    left: 0px;
+    padding: 10px 15px;
+    position: absolute;
+    width: 100%;
+}
+
+.name {
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+.infor {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .3px;
+    margin-bottom: 0px;
+    text-align: left;
+}

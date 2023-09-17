@@ -1,0 +1,32 @@
+.header-navigation-component {
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+.navigation-list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navigation-list li a {
+    border: 1px solid transparent;
+    border-radius: 20px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 5px 15px;
+    text-decoration: none;
+}
+
+.navigation-list li a.active {
+    border: 1px solid #ffffff;
+}
+
+.navigation-list li a span {
+    margin-left: 5px;
+}

@@ -1,0 +1,133 @@
+.product-booking-wrapper {
+    padding: 3.5rem 0rem;
+}
+
+.booking-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+.room-wrapper, .room-list {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.room-list-wrapper {
+    padding: 0px 15px;
+}
+
+.booking-room-hotel-name {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.booking-room-name {
+    font-size: 2.3rem;
+    font-weight: 500;
+}
+
+.booking-room-max-people, .booking-room-policy, .booking-room-price {
+    margin-bottom: 5px;
+}
+
+.booking-room-policy {
+    font-size: 1.6rem;
+    letter-spacing: .3px;
+}
+
+.booking-room-max-people {
+    letter-spacing: .3px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.booking-room-max-people span {
+    margin-left: 5px;
+}
+
+.booking-room-price {
+    font-size: 1.8rem;
+    font-weight: 700;;
+}
+
+.payment-options {
+    display: flex;
+    align-items: center;
+}
+
+.message-booking {
+    color: #be0000;
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding: 1rem 0rem;
+    text-align: left;
+}
+
+@media screen and (min-width: 320px) {
+    .room-wrapper {
+        flex-direction: column;
+    }
+    .room-infor {
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+    .room-list-wrapper {
+        padding: 0px;
+        width: 100%;
+    }
+
+    .payment-options {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .payment-options > div:first-child {
+        width: 100%;
+    }
+    
+    .payment-options > div:last-child {
+        width: 100%;
+    }
+
+    .payment-options > div:last-child button {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .room-wrapper {
+        flex-direction: row;
+    }
+    .room-infor {
+        margin-bottom: 0rem;
+        width: calc(100% / 2);
+    }
+    .room-list-wrapper {
+        padding: 0px;
+        width: calc(100% / 2);
+    }
+
+    .payment-options {
+        flex-direction: row;
+        gap: 25px;
+    }
+
+    .payment-options > div:first-child {
+        width: 370px;
+    }
+    
+    .payment-options > div:last-child {
+        width: unset;
+    }
+
+    .payment-options > div:last-child button {
+        width: unset;
+    }
+}

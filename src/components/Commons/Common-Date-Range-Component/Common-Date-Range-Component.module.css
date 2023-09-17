@@ -1,0 +1,7 @@
+.common-date-range-component {
+    border: 1px solid #dddddd;
+}
+
+.common-date-range-component, .common-date-range-component > div {
+    width: 100%;
+}

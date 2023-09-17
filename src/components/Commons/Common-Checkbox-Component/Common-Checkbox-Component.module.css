@@ -1,0 +1,22 @@
+.common-checkbox-component {
+    margin: 0px 5px;
+}
+
+.form-check-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0px;
+}
+
+.form-check-label-cutom {
+    font-size: 1.5rem;
+}
+
+.form-check-input-custom {
+    accent-color: var(--first-color);
+    height: 1.8rem;
+    margin-left: 0px;
+    position: unset;
+    width: 1.8rem;
+}
