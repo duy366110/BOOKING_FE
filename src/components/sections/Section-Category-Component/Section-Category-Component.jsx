@@ -1,4 +1,5 @@
 import React from "react";
+import configEnv from "../../../configs/config.env";
 import classes from "./Section-Category-Component.module.css"
 
 const SectionCategoryComponent = (props) => {
@@ -11,7 +12,7 @@ const SectionCategoryComponent = (props) => {
                         return (
                             <div key={category._id} className={classes["category-items"]}>
                                 <div className={classes["category-item__photo"]}>
-                                    <img src={`http://localhost:5000/${category.images[0]}`} alt="photo" />
+                                    <img src={`${configEnv.URL}/${category.images[0]}`} alt="photo" />
                                 </div>
 
                                 <div className={classes["category-item__infor"]}>

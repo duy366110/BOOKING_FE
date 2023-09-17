@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import configEnv from "../../../configs/config.env";
 import useValidation from "../../../hook/use-validation";
 import useHttp from "../../../hook/use-http";
 import moment from "moment";
@@ -143,7 +144,7 @@ const PageProductBookingComponent = (props) => {
                     console.log(booking);
 
                     httpMethod({
-                        url: 'http://localhost:5000/api/client/booking/hotel/room',
+                        url: `${configEnv.URL}/api/client/booking/hotel/room`,
                         method: 'POST',
                         author: '',
                         payload: JSON.stringify(booking),

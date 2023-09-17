@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import configEnv from "../../../configs/config.env";
 import classes from "./Common-Hotel-Card-Component.module.css";
 
 const CommonHotelCardComponent = (props) => {
@@ -8,7 +9,7 @@ const CommonHotelCardComponent = (props) => {
         <div className={classes['common-hotel-card-component']}>
             <Link to={`/products/${props.id}`}>
                 <div className={classes['card-photo']}>
-                    <img src={`http://localhost:5000/${props.photo}`} alt="photo" />
+                    <img src={`${configEnv.URL}/${props.photo}`} alt="photo" />
                 </div>
                 <div className={classes['card-infor']}>
                     <h2 className={classes['title']}>{props.name}</h2>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import useHttp from "../../../hook/use-http";
+import configEnv from "../../../configs/config.env";
 import SectionHeaderComponent from "../../sections/Section-Header-Component/Section-Header-Component";
 import CommonRoomCardComponent from "../../Commons/Common-Room-Card-Component/Common-Room-Card-Component";
 import SectionFooterComponent from "../../sections/Section-Footer-Component/Section-Footer-Component";
@@ -49,7 +49,7 @@ export const loader = (request, params) => {
     return new Promise( async(resolve, reject) => {
         try {
             let { hotel } = params;
-            let res = await fetch(`http://localhost:5000/api/client/hotel/${hotel}`, {
+            let res = await fetch(`${configEnv.URL}/api/client/hotel/${hotel}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

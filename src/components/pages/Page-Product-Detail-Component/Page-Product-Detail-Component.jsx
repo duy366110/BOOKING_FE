@@ -1,6 +1,7 @@
 import  React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import configEnv from "../../../configs/config.env";
 import { setInforHotelRoomBeforeBooking } from "../../../store/store-booking";
 import RoomIcon from '@mui/icons-material/Room';
 import CommonButtonComponent from "../../Commons/Common-Button-Component/Common-Button-Component";
@@ -68,7 +69,7 @@ const PageProductDetailComponent = (props) => {
                                     {room.images.length > 0 && room.images.map((photo, index) => {
                                         return (
                                             <div key={index} className={classes['photo-item']}>
-                                                <img src={`http://localhost:5000/${photo}`} alt="photo" />
+                                                <img src={`${configEnv.URL}/${photo}`} alt="photo" />
                                             </div>
                                         )
                                     })}
@@ -111,7 +112,7 @@ export const loader = (request, params) => {
     return new Promise( async (resolve, reject) => {
         try {
             let { hotel, room} = params;
-            let res = await fetch(`http://localhost:5000/api/client/hotel/${hotel}/${room}`, {
+            let res = await fetch(`${configEnv.URL}/api/client/hotel/${hotel}/${room}`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",

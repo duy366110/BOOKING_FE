@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import configEnv from "../../../configs/config.env";
 import SectionHeaderComponent from "../../sections/Section-Header-Component/Section-Header-Component";
 import SectionFooterComponent from "../../sections/Section-Footer-Component/Section-Footer-Component";
 import classes from "./Page-Transaction-Component.module.css";
@@ -75,7 +76,7 @@ export const loader = () => {
     return new Promise( async (resolve, reject) => {
         try {
             let user = JSON.parse(localStorage.getItem('user'));
-            let res = await fetch("http://localhost:5000/api/client/booking", {
+            let res = await fetch(`${configEnv.URL}/api/client/booking`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": 'application/json',
