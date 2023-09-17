@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import configEnv from "../../../configs/config.env";
 import { authInfor } from "../../../store/store-auth";
 import useHttp from '../../../hook/use-http';
 import useValidation from '../../../hook/use-validation';
@@ -34,7 +35,7 @@ const PageAuthRegisterComponent = (props) => {
 
         if(emailValid.status && passwordValid.status) {
             httpMethod({
-                url: 'http://localhost:5000/api/client/user/account',
+                url: `${configEnv.URL}/api/client/user/account`,
                 method: 'POST',
                 author: '',
                 payload: JSON.stringify({email: emailValue, password: passwordValue}),

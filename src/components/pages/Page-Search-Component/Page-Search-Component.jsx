@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import configEnv from "../../../configs/config.env";
 import useHttp from "../../../hook/use-http";
 import CommonButtonComponent from "../../Commons/Common-Button-Component/Common-Button-Component";
 import CommonSearchInputComponent from "../../Commons/Common-Search-Input-Component/Common-Search-Input-Component";
@@ -31,7 +32,7 @@ const PageSearchComponent = (props) => {
     // PHƯƠNG THỨC THỰC HIỆN TÌM KIẾM
     const searchHandler = (payload) => {
         httpMethod({
-            url: 'http://localhost:5000/api/search/hotel',
+            url: `${configEnv.URL}/api/search/hotel`,
             method: 'POST',
             author: '',
             payload: JSON.stringify(payload),
