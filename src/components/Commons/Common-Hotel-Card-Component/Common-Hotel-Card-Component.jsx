@@ -14,7 +14,7 @@ const CommonHotelCardComponent = (props) => {
                 <div className={classes['card-infor']}>
                     <h2 className={classes['title']}>{props.name}</h2>
                     <h3 className={classes['city']}>{props.city}</h3>
-                    <h4 className={classes['price']}>Starting from ${Number(props.price).toFixed(3)}</h4>
+                    {/* <h4 className={classes['price']}>Starting from ${Number(props.price).toFixed(3)}</h4> */}
                 </div>
             </Link>
         </div>
