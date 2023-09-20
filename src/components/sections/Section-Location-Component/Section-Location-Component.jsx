@@ -13,7 +13,7 @@ const SectionLocationComponent = (props) => {
                             <div key={location._id} className="col-12 col-sm-6 col-lg-4">
                                 <div className={`${classes["location-wrapper"]}`}>
                                     <div className={`${classes["thumbnail"]}`}>
-                                        <img src={`${configEnv.URL}/${location.images[0]}`} alt="introduction images"/>
+                                        <img src={location.images[0]} alt="introduction images"/>
                                     </div>
                                     <div className={`${classes["description"]}`}>
                                         <h2 className={`${classes["name"]}`}>{location.title}</h2>
