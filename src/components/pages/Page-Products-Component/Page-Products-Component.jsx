@@ -15,6 +15,7 @@ const PageProductsComponent = (props) => {
     useEffect(() => {
         let {status, message, hotel} = loader;
         if(status) {
+            console.log(hotel);
             setHotel(hotel);
         }
 
