@@ -12,7 +12,7 @@ const SectionHotelComponent = (props) => {
                     {props.list.map((hotel) => {
                         return (
                             <div key={hotel._id} className="col-12 col-sm-6 col-lg-3 mb-5">
-                                <CommonHotelCardComponent id={hotel._id} name={hotel.name} photo={hotel.images[0]} city={hotel.city.title} price={hotel.price.$numberDecimal} />
+                                <CommonHotelCardComponent id={hotel._id} name={hotel.name} photo={hotel.images[0]} city={hotel.city.title} />
                             </div>
                         )
                     })}
