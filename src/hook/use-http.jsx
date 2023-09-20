@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
+import { messageOpen, messageClose, toggleLoader } from "../store/store-popup";
+
 const useHttp = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     // KHỞI TẠO PHƯƠNG THỨC HTTP
     const httpMethod = async (option = {url: '', method: '', author: '', payload: null, customForm: false}, callback) => {
@@ -7,6 +10,7 @@ const useHttp = () => {
         try {
             // TẠO REQUEST ĐẾN SERVER
             let res = null;
+            dispatch(toggleLoader());
 
             // TRƯỜNG HỢP GỬI REQUEST THÔNG THƯỜNG
             if(!option.customForm) {
@@ -36,16 +40,16 @@ const useHttp = () => {
             callback(await res.json());
 
         } catch (error) {
-            throw error;
-
             // BẬT THÔNG BÁO KHI XUẤT HIỆN LỖI
-            //    dispatch(messageOpen({content: error.message}));
+            dispatch(messageOpen({content: error.message}));
 
            // ĐÓNG THÔNG BÁO SAU MỘT KHOẢN THỜI GIAN
-            //    setTimeout(() => {
-            //     dispatch(messageClose());
-            //    }, 2500)
+            setTimeout(() => {
+            dispatch(messageClose());
+            }, 2500)
         }
+
+        dispatch(toggleLoader());
     }
 
     // TRẢ VỀ PHƯƠNG THỨC HTTP
