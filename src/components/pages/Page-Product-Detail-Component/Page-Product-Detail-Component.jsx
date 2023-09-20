@@ -21,10 +21,10 @@ const PageProductDetailComponent = (props) => {
 
     // PHƯƠNG THỨC LOAD THONG TIN CHI TIẾT HOTEL VÀ ROOM
     useEffect(() => {
-        let { status, message, hotel, room} = loader;
+        let { status, message, hotel} = loader;
         if(status) {
             setHotel(hotel);
-            setRoom(room);
+            setRoom(hotel.rooms[0]);
 
         }
 
@@ -69,7 +69,7 @@ const PageProductDetailComponent = (props) => {
                                     {room.images.length > 0 && room.images.map((photo, index) => {
                                         return (
                                             <div key={index} className={classes['photo-item']}>
-                                                <img src={`${configEnv.URL}/${photo}`} alt="photo" />
+                                                <img src={photo} alt="photo" />
                                             </div>
                                         )
                                     })}
