@@ -19,7 +19,7 @@ const CommonRoomCardComponent = (props) => {
            <div className="row">
             <div className="col-12 col-md-4 col-lg-4 mb-3 mg-lg-0">
                 <div className={classes['photo']}>
-                    <img src={`http://localhost:5000/${props.infor.images[0]}`} alt="photo" />
+                    <img src={props.infor.images[0]} alt="photo" />
                 </div>
             </div>
             <div className="col-12 col-md-4 col-lg-5 mb-3 mg-lg-0">
