@@ -63,6 +63,9 @@ const PageProductBookingComponent = (props) => {
             fullNameDef(auth.infor.fullname);
             emailDef(auth.infor.email);
             phoneDef(auth.infor.phone);
+
+        } else {
+            navigate("/auth/signin");
         }
 
     }, [])

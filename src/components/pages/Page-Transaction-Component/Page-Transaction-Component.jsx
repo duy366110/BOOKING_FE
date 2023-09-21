@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import configEnv from "../../../configs/config.env";
 import SectionHeaderComponent from "../../sections/Section-Header-Component/Section-Header-Component";
 import SectionFooterComponent from "../../sections/Section-Footer-Component/Section-Footer-Component";
@@ -7,18 +8,24 @@ import classes from "./Page-Transaction-Component.module.css";
 
 const PageTransactionComponent = (props) => {
     const loader = useLoaderData();
+    const navigate = useNavigate();
+    const auth = useSelector((state) => state.auth);
 
-    const [user, setUser] = useState(null);
     const [bookings, setBookings] = useState([]);
 
     // THỰC HIỆN LOADER THÔNG TIN BÔKING TRANSACTION
     useEffect(() => {
-        console.log(loader);
+        if(loader) {
+            let { status, message, bookings} = loader;
+            if(status && auth.infor.token) {
+                setBookings(bookings);
 
-        let { status, message, user, bookings} = loader;
-        if(status) {
-            setUser(user);
-            setBookings(bookings);
+            } else {
+                navigate("/auth/signin");
+            }
+
+        } else {
+            navigate("/");
         }
         
     }, [])
@@ -29,7 +36,7 @@ const PageTransactionComponent = (props) => {
 
             <div className="container">
                 <div className={classes["transaction-wrapper"]}>
-                    { user && bookings.length > 0 && (
+                    { auth.infor.token && bookings.length > 0 && (
                         <table className={`table table-striped ${classes['table-custom']}`}>
                             <thead>
                                 <tr>
@@ -52,7 +59,7 @@ const PageTransactionComponent = (props) => {
                                             <td>{new Date(booking.startDate).toLocaleDateString()} - {new Date(booking.endDate).toLocaleDateString()}</td>
                                             <td>$ {booking.price.$numberDecimal}</td>
                                             <td>$ {booking.payment}</td>
-                                            <td>$ {booking.status}</td>
+                                            <td>{booking.status}</td>
                                         </tr>
                                     )
                                 })}
@@ -72,24 +79,31 @@ const PageTransactionComponent = (props) => {
 export default PageTransactionComponent;
 
 // LOAD THÔNG TIN TRANSACTION CỦA NGƯỜI DÙNG
-export const loader = () => {
+export const loader = (request, params) => {
     return new Promise( async (resolve, reject) => {
         try {
-            let user = JSON.parse(localStorage.getItem('user'));
-            let res = await fetch(`${configEnv.URL}/api/client/booking`, {
-                method: 'GET',
-                headers: {
-                    "Content-Type": 'application/json',
-                    "Authorization": `bearer ${user.token}`
+            let user = localStorage.getItem("user");
+            let { token } = params;
+
+            if((token && token.length > 10) && user) {
+                let res = await fetch(`${configEnv.URL}/api/client/booking/transaction`, {
+                    method: 'GET',
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
+    
+                if(!res.ok) {
+                    let infor = await res.json();
+                    throw Error(infor.message);
                 }
-            })
+    
+                resolve(await res.json());
 
-            if(!res.ok) {
-                let infor = await res.json();
-                throw Error(infor.message);
+            } else {
+                resolve(null);
             }
-
-            resolve(await res.json());
 
         } catch (error) {
             reject({status: false, error});
