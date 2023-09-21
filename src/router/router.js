@@ -10,6 +10,8 @@ const PageProductBookingComponent = lazy(() => import("../components/pages/Page-
 const PageTransactionComponent = lazy(() => import("../components/pages/Page-Transaction-Component/Page-Transaction-Component"));
 const PareSearchComponent = lazy(() => import("../components/pages/Page-Search-Component/Page-Search-Component"));
 
+const PageExceptionComponent = lazy(() => import("../components/pages/Page-Exception-Component/Page-Exception-Component"));
+
 // AUTH
 const PageAuthComponent = lazy(() => import("../components/Page-Auth/Page-Auth-Component"));
 const PageAuthSigninComponent = lazy(() => import("../components/Page-Auth/Page-Auth-Signin-Component/Page-Auth-Signin-Component"));
@@ -19,7 +21,7 @@ const Router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: <div>Error page</div>,
+        errorElement: <Suspense fallback={<p>Loading...</p>}><PageExceptionComponent /></Suspense>,
         children: [
             {
                 index: true,
