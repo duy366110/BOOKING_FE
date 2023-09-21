@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLoaderData } from "react-router-dom";
+import { useSelector } from "react-redux";
 import configEnv from "../../../configs/config.env";
 import useValidation from "../../../hook/use-validation";
 import useHttp from "../../../hook/use-http";
@@ -22,6 +23,8 @@ let PAYMENTS = [
 
 const PageProductBookingComponent = (props) => {
     const navigate = useNavigate();
+    const loader = useLoaderData();
+    const auth = useSelector((state) => state.auth);
 
     const fullNameRef = useRef();
     const emailRef = useRef();
@@ -30,9 +33,9 @@ const PageProductBookingComponent = (props) => {
     const paymentRef = useRef();
 
     const { httpMethod } = useHttp();
-    const {value: fullNameValue, valid: fullNameValid, onBlur: fullNameBlur, onChange: fullNameChange} = useValidation(['require']);
-    const {value: emailValue, valid: emailValid, onBlur: emailBlur, onChange: emailChange} = useValidation(['require', 'email']);
-    const {value: phoneValue, valid: phoneValid, onBlur: phoneBlur, onChange: phoneChange} = useValidation(['require', "phone"]);
+    const {defaultValue: fullNameDef, value: fullNameValue, valid: fullNameValid, onBlur: fullNameBlur, onChange: fullNameChange} = useValidation(['require']);
+    const {defaultValue: emailDef, value: emailValue, valid: emailValid, onBlur: emailBlur, onChange: emailChange} = useValidation(['require', 'email']);
+    const {defaultValue: phoneDef, value: phoneValue, valid: phoneValid, onBlur: phoneBlur, onChange: phoneChange} = useValidation(['require', "phone"]);
     const {value: cardValue, valid: cardValid, onBlur: cardBlur, onChange: cardChange} = useValidation(['require']);
     const {value: paymentValue, valid: paymentValid, onBlur: paymentBlur, onChange: paymentChange} = useValidation(['require']);
     
@@ -48,11 +51,18 @@ const PageProductBookingComponent = (props) => {
 
     // THỰC HIỆN LOAD THÔNG TIN HOTEL - ROOM
     useEffect(() => {
-        let booking = localStorage.getItem('booking');
-        if(booking) {
-            let { hotel, room } = JSON.parse(booking);
+        let { status, message, hotel} = loader;
+
+        if(status && auth.infor.token) {
+
+            // BINDING THÔNG TIN HOTEL AND ROOM
             setHotel(hotel);
-            setRoom(room);
+            setRoom(hotel.rooms[0]);
+
+            // BINDING THÔNG TIN USER
+            fullNameDef(auth.infor.fullname);
+            emailDef(auth.infor.email);
+            phoneDef(auth.infor.phone);
         }
 
     }, [])
@@ -258,3 +268,29 @@ const PageProductBookingComponent = (props) => {
 }
 
 export default PageProductBookingComponent;
+
+// LOADER THÔNG TIN HOTEL VÀ ROOM THỰC HIỆN BOOKING SẢN PHẦM
+export const loader = (request, params) =>  {
+    return new Promise( async (resolve, reject) => {
+        try {
+            let { hotel, room} = params;
+            let res = await fetch(`${configEnv.URL}/api/client/hotel/${hotel}/${room}`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": ""
+                }
+            })
+
+            if(!res.ok) {
+                let infor = await res.json();
+                throw Error(infor.message);
+            }
+
+            resolve(await res.json());
+
+        } catch (error) {
+            reject({status: false, error});
+        }
+    })
+}
