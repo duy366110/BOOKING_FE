@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useEffect, useState, useReducer } from "react";
 const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 const regexPhone = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
@@ -68,13 +68,16 @@ const validReducer = (state, action) => {
     if(action.type === "VALID") {
 
         // Dự vào danh sách nhập điều kiên lấy từng điều kiện kiểm tra. VD: ['require', 'email'].
-        for(let key of action.options) {
-            let inforValid = valid(key, action.value);
-
-            if(!inforValid.status) {
-                return inforValid;
+        if(action.options.length) {
+            for(let key of action.options) {
+                let inforValid = valid(key, action.value);
+    
+                if(!inforValid.status) {
+                    return inforValid;
+                }
             }
         }
+        
 
         return {status: true, message: ''};
     }
@@ -84,18 +87,39 @@ const validReducer = (state, action) => {
 
 const useValidation = (options = []) => {
     const [valid, dispatchValid] = useReducer(validReducer, {status: null, message: ''});
+    const [defaultVal, setDefaultVal] = useState('');
     const [value, setValue] = useState('');
 
     const onBlur = (event) => {
-        dispatchValid({type: 'VALID', options, value: event.target.value});
+        let { type } = event.target;
+
+        if(type !== 'file') {
+            dispatchValid({type: 'VALID', options, value: event.target.value});
+
+        } else {
+            dispatchValid({type: 'VALID', options, value: event.target.files[0]?.name? 'has file' : ''});
+        }
     }
 
     const onChange = (event) => {
-        setValue(event.target.value);
-        
+        let { type } = event.target;
+
+        if(type !== 'file') {
+            setValue(event.target.value);
+
+        } else {
+            let nameFile = event.target.files[0]?.name? event.target.files[0]?.name : '';
+            setValue(nameFile);
+        }
     }
 
+    useEffect(() => {
+        setValue(defaultVal);
+
+    }, [defaultVal])
+
     return {
+        defaultValue: setDefaultVal,
         value,
         valid,
         onBlur,

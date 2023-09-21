@@ -1,8 +1,7 @@
 import  React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import configEnv from "../../../configs/config.env";
-import { setInforHotelRoomBeforeBooking } from "../../../store/store-booking";
 import RoomIcon from '@mui/icons-material/Room';
 import CommonButtonComponent from "../../Commons/Common-Button-Component/Common-Button-Component";
 import SectionHeaderComponent from "../../sections/Section-Header-Component/Section-Header-Component";
@@ -12,7 +11,6 @@ import classes from "./Page-Product-Detail-Component.module.css";
 const PageProductDetailComponent = (props) => {
     const loader = useLoaderData();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const auth = useSelector((state) => state.auth);
 
     const [hotel, setHotel] = useState(null);
@@ -25,19 +23,14 @@ const PageProductDetailComponent = (props) => {
         if(status) {
             setHotel(hotel);
             setRoom(hotel.rooms[0]);
-
         }
 
     }, [])
 
     // REDIRECT ĐẾN TRANG BOOK ROOM
     const redrectPageBookingHandler = (event) => {
-        let user = JSON.parse(localStorage.getItem('user'));
-
-        if(user || auth.infor.token) {
-            dispatch(setInforHotelRoomBeforeBooking({hotel, room}));
+        if(auth.infor.token) {
             navigate(`/product-booking/${hotel._id}/${room._id}`);
-
         } else {
             navigate("/auth/signin");
         }

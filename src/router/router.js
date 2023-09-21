@@ -37,6 +37,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "product-booking/:hotel/:room",
+                loader: ({request, params}) => import("../components/pages/Page-Product-Booking-Component/Page-Product-Booking-Component").then((m) => m.loader(request, params)),
                 element: <Suspense fallback={<p>Loading...</p>}><PageProductBookingComponent /></Suspense>
             },
             {

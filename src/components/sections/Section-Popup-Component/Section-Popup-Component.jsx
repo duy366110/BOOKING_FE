@@ -8,8 +8,6 @@ const SectionPopupComponent = (props) => {
 
     const popup = useSelector((state) => state.popup);
 
-    console.log(popup);
-
     return (
         <div>
             {popup.message.status && (<CommonPopupMessageComponent />)}
