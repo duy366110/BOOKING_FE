@@ -133,13 +133,12 @@ const PageProductBookingComponent = (props) => {
 
                 let user = localStorage.getItem('user');
 
-                if(user) {
+                if(auth.infor.token) {
                     user = JSON.parse(user);
 
                     let booking = {
                         hotel: hotel._id,
                         room: room._id,
-                        token: user.token,
                         fullName: fullNameValue,
                         email: emailValue,
                         phone: phoneValue,
@@ -154,9 +153,9 @@ const PageProductBookingComponent = (props) => {
                     console.log(booking);
 
                     httpMethod({
-                        url: `${configEnv.URL}/api/client/booking/hotel/room`,
+                        url: `${configEnv.URL}/api/client/booking/room`,
                         method: 'POST',
-                        author: '',
+                        author: `Bearer ${auth.infor.token}`,
                         payload: JSON.stringify(booking),
                         customForm: false
                     },
