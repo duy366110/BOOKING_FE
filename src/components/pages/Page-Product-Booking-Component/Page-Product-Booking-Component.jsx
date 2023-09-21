@@ -166,7 +166,7 @@ const PageProductBookingComponent = (props) => {
                         let { status, message, infor } = information;
         
                         if(status) {
-                            navigate("/transaction");
+                            navigate(`/transaction/${auth.infor.token}`);
                         }
                     })
 

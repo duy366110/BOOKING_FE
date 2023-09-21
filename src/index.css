@@ -9,6 +9,7 @@
 html, body {
   box-sizing: border-box;
   font-size: 10px;
+  height: 100%;
   margin: 0px auto;
   padding: 0px;
 }
