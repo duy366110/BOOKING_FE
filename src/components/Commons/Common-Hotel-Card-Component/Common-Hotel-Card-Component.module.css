@@ -15,11 +15,12 @@
 }
 
 .card-photo {
-    height: 210px;
+    height: 200px;
     overflow: hidden;
 }
 
 .card-photo img {
+    height: 100%;
     width: 100%;
 }
 
@@ -44,10 +45,17 @@
     -webkit-box-orient: vertical;
 }
 
-.city {
+.location {
     color: #474747;
+    display: flex;
+    align-items: center;
     font-size: 14px;
     font-weight: 400;
+}
+
+.location svg {
+    color: var(--first-color);
+    margin-right: 5px;
 }
 
 .price {

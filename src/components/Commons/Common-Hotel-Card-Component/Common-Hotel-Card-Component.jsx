@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import configEnv from "../../../configs/config.env";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import classes from "./Common-Hotel-Card-Component.module.css";
 
 const CommonHotelCardComponent = (props) => {
@@ -13,7 +13,7 @@ const CommonHotelCardComponent = (props) => {
                 </div>
                 <div className={classes['card-infor']}>
                     <h2 className={classes['title']}>{props.name}</h2>
-                    <h3 className={classes['city']}>{props.city}</h3>
+                    <h3 className={classes['location']}><LocationOnIcon />{props.city}</h3>
                     {/* <h4 className={classes['price']}>Starting from ${Number(props.price).toFixed(3)}</h4> */}
                 </div>
             </Link>
