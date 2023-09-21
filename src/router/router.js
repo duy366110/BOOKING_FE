@@ -19,6 +19,7 @@ const Router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
+        errorElement: <div>Error page</div>,
         children: [
             {
                 index: true,
@@ -41,9 +42,9 @@ const Router = createBrowserRouter([
                 element: <Suspense fallback={<p>Loading...</p>}><PageProductBookingComponent /></Suspense>
             },
             {
-                path: 'transaction',
-                loader: () => import("../components/pages/Page-Transaction-Component/Page-Transaction-Component").then((m) => m.loader()),
-                element: <Suspense><PageTransactionComponent /></Suspense>
+                path: 'transaction/:token',
+                loader: ({request, params}) => import("../components/pages/Page-Transaction-Component/Page-Transaction-Component").then((m) => m.loader(request, params)),
+                element: <Suspense fallback={<p>Loading...</p>}><PageTransactionComponent /></Suspense>
             },
             {
                 path: 'search',

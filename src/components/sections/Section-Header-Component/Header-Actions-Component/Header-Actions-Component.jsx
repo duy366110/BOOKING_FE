@@ -34,7 +34,7 @@ const HeaderActionsComponent = (props) => {
 
     // NGƯỜI DÙNG CHUYỂN ĐẾN TRANG TRANSACTION
     const userTransactionHandler = (event) => {
-        navigate("/transaction");
+        navigate(`/transaction/${auth.infor.token}`);
     }
 
     // NGƯỜI DÙNG ĐĂNG XUẤT
