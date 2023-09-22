@@ -39,13 +39,10 @@ const PageSearchComponent = (props) => {
             customForm: false
         },
             (infor) => {
-            let { code, status, message, metadata } = infor;
-
+            let { code, status, message, metadata: { rooms } } = infor;
+            
             if(status) {
-                console.log(metadata);
-
-                // const { rooms } = metadata;
-                // setRooms(rooms);
+                setRooms(rooms);
             }
         })
     }

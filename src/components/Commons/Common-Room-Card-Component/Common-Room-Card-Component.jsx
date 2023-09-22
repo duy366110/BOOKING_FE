@@ -11,7 +11,7 @@ const CommonRoomCardComponent = (props) => {
     const redirectDetailRoomOfHotel = (event) => {
         let { id } = event.target;
         let { hotel } = params;
-        navigate(`/product-detail/${hotel? hotel: props.infor.hotels[0]}/${id}`);
+        navigate(`/product-detail/${hotel? hotel: props.infor.hotel}/${id}`);
     }
 
     return (
