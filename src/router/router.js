@@ -9,7 +9,10 @@ const PageProductDetailComponent = lazy(() => import("../components/pages/Page-P
 const PageProductBookingComponent = lazy(() => import("../components/pages/Page-Product-Booking-Component/Page-Product-Booking-Component"));
 const PageTransactionComponent = lazy(() => import("../components/pages/Page-Transaction-Component/Page-Transaction-Component"));
 const PareSearchComponent = lazy(() => import("../components/pages/Page-Search-Component/Page-Search-Component"));
-
+const PageFlightComponent = lazy(() => import("../components/pages/Page-Flight-Component/Page-Flight-Component"));
+const PageCarRentalComponent = lazy(() => import("../components/pages/Page-Car-Rental-Component/Page-Car-Rental-Component"));
+const PageAttractionComponent = lazy(() => import("../components/pages/Page-Attraction-Component/Page-Attraction-Component"));
+const PageAiportTaxiComponent = lazy(() => import("../components/pages/Page-Aiport-Taxis-Component/Page-Aiport-Taxis-Component"));
 const PageExceptionComponent = lazy(() => import("../components/pages/Page-Exception-Component/Page-Exception-Component"));
 
 // AUTH
@@ -51,6 +54,22 @@ const Router = createBrowserRouter([
             {
                 path: 'search',
                 element: <Suspense fallback={<p>Loading...</p>}><PareSearchComponent /></Suspense>
+            },
+            {
+                path: 'flight',
+                element: <Suspense fallback={<p>Loading...</p>}><PageFlightComponent /></Suspense>
+            },
+            {
+                path: "car-rental",
+                element: <Suspense fallback={<p>Loading...</p>}><PageCarRentalComponent /></Suspense>
+            },
+            {
+                path: 'attraction',
+                element: <Suspense fallback={<p>Loading...</p>}><PageAttractionComponent /></Suspense>
+            },
+            {
+                path: 'aiport-taxi',
+                element: <Suspense fallback={<p>Loading...</p>}><PageAiportTaxiComponent /></Suspense>
             }
         ]
     },

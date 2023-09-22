@@ -18,25 +18,25 @@ const HeaderNavigationComponent = (props) => {
                 </li>
 
                 <li>
-                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-01">
+                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/flight">
                     <LocalAirportIcon /> <span>Flights</span>
                     </NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-02">
+                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/car-rental">
                         <DirectionsCarFilledIcon /> <span>Car rentals</span>
                     </NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-03">
+                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/attraction">
                         <HotelIcon /> <span>Attractions</span>
                     </NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-04">
+                    <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/aiport-taxi">
                         <LocalTaxiIcon /> <span>Aiport taxis</span>
                     </NavLink>
                 </li>
