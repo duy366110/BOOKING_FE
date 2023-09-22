@@ -19,7 +19,6 @@ const CommonSearchInputComponent = (props) => {
 
     // NGƯỜI DUNG BLUR KHỎI SEẢCH BOX
     const blurSearchHandler = (event) => {
-        // props.blur(serachInput);
         dispatch(setLocation({location: serachInput}))
     }
 

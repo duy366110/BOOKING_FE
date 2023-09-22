@@ -31,10 +31,13 @@ const searchSlice = createSlice({
         },
         setSRoom: (state, action) => {
             state.data.room = action.payload.room;
+        },
+        saveSearchData: (state, action) => {
+            localStorage.setItem('search', JSON.stringify(state.data));
         }
     }
 })
 
-export const { setLocation, setDate, setSAudlt, setSChildren, setSRoom } = searchSlice.actions;
+export const { setLocation, setDate, setSAudlt, setSChildren, setSRoom, saveSearchData } = searchSlice.actions;
 
 export default searchSlice.reducer;

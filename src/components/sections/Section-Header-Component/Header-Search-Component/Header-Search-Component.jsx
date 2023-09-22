@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { saveSearchData } from "../../../../store/store-search";
 import CommonSearchInputComponent from "../../../Commons/Common-Search-Input-Component/Common-Search-Input-Component";
 import CommonSearchDateRangerComponent from "../../../Commons/Common-Search-Date-Ranger-Component/Common-Search-Date-Ranger-Component";
 import CommonSearchOptionComponent from "../../../Commons/Common-Search-Option-Component/Common-Search-Option-Component";
@@ -9,11 +10,11 @@ import classes from "./Header-Search-Component.module.css";
 
 const HeaderSearchComponent = (props) => {
     const navigate = useNavigate();
-    const search = useSelector((state) => state.search);
+    const dispatch = useDispatch();
 
     // NGƯỜI DÙNG CHUYỂN ĐẾN TRANG TÌM KIẾM THÔNG TIN
     const navigateSearchHandler = (event) => {
-        localStorage.setItem('search', JSON.stringify(search.data));
+        dispatch(saveSearchData());
         navigate(`/search`);
     }
 
