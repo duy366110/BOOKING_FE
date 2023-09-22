@@ -20,16 +20,16 @@ const HeaderTabLeftComponent = (props) => {
                         <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/"><HotelIcon /><span>Statys</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-01"><LocalAirportIcon /><span>Flights</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/flight"><LocalAirportIcon /><span>Flights</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-02"><DirectionsCarFilledIcon /><span>Car rentals</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/car-rental"><DirectionsCarFilledIcon /><span>Car rentals</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-03"><HotelIcon /><span>Attractions</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/attraction"><HotelIcon /><span>Attractions</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/test-04"><LocalTaxiIcon /><span>Aiport taxis</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? classes["active"] : "" } to="/aiport-taxi"><LocalTaxiIcon /><span>Aiport taxis</span></NavLink>
                     </li>
                 </ul>
             </div>

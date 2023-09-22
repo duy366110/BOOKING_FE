@@ -70,3 +70,10 @@
 .common-hotel-card-component a:hover .title {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 912px) {
+    .card-photo {
+        height: 300px;
+        width: 100%;
+    }
+}
