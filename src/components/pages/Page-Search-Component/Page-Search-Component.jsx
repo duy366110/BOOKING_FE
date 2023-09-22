@@ -42,8 +42,10 @@ const PageSearchComponent = (props) => {
             let { code, status, message, metadata } = infor;
 
             if(status) {
-                const { rooms } = metadata;
-                setRooms(rooms);
+                console.log(metadata);
+
+                // const { rooms } = metadata;
+                // setRooms(rooms);
             }
         })
     }
@@ -94,7 +96,7 @@ const PageSearchComponent = (props) => {
             <SectionHeaderComponent hidden={true} />
 
             <div className={classes['search-wrapper']}>
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
                         <div className="col-12 col-lg-4 mb-5 mb-lg-0">
                             <form onSubmit={serachHandler}>

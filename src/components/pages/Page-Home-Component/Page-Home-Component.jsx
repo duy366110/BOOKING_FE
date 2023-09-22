@@ -30,7 +30,6 @@ const PageHomeComponent = (props) => {
     return (
         <div className={classes['page-home-component']}>
             {/* HEADER */}
-            {/* <CommonHeaderComponent header={true}/>*/}
             <SectionHeaderComponent />
 
             {/* LOCATION */}
