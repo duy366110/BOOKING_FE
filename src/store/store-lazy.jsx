@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initState = {
     location: {
-        elementPage: 2,
+        elementPage: 9,
         pages: []
     },
 
@@ -38,11 +38,16 @@ const lazySlice = createSlice({
                     return elm;
                 })
             }
-
+        },
+        resetLazy: (state, action) => {
+            let { type } = action.payload;
+            if(type === "location") {
+                state.location.pages = [];
+            }
         }
     }
 })
 
-export const { initLazy, updateLazyPage } = lazySlice.actions;
+export const { initLazy, updateLazyPage, resetLazy } = lazySlice.actions;
 
 export default lazySlice.reducer;

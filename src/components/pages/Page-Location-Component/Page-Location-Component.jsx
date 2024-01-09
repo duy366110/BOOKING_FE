@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import ENVIRONMENT from "../../../environment";
 import configEnv from "../../../configs/config.env";
-import { initLazy, updateLazyPage } from "../../../store/store-lazy";
+import { initLazy, updateLazyPage, resetLazy } from "../../../store/store-lazy";
 
 import SectionHeaderComponent from "../../sections/Section-Header-Component/Section-Header-Component";
 import SectionHeaderPosterComponent from "../../sections/Section-Header-Poster-Component/Section-Header-Poster-Component";
@@ -46,7 +46,7 @@ const PageLocationComponent = (props) => {
 
                             worker.postMessage({
                                 type:"get-location",
-                                url: `${configEnv.URL}${ENVIRONMENT.LOCATION.ROOT}/${lazy.location.elementPage}/${start}`
+                                url: `${configEnv.URL}${ENVIRONMENT.LOCATION.ROOT}/${lazy.location.elementPage}/${start * lazy.location.elementPage}`
                             })
         
                             worker.onmessage = (event) => {
@@ -67,6 +67,10 @@ const PageLocationComponent = (props) => {
 
             }, 0)
         }
+
+        return (() => {
+            dispatch(resetLazy({type: "location"}));
+        })
 
     }, [
         loader,

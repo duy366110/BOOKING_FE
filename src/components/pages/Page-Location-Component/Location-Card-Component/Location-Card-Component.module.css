@@ -1,0 +1,29 @@
+.location-card-component {
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    display: flex;
+    padding: 2rem;
+    height: 185px;
+}
+
+.location-card-component:hover {
+    text-decoration: none;
+}
+
+.location-infor {
+    color: #ffffff;
+    font-size: 1.5rem;
+    letter-spacing: .3px;
+    text-align: left;
+}
+
+.location-infor-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.location-infor-amount-hotel {
+    font-size: 1.5rem;
+}
