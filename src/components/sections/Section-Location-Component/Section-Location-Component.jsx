@@ -1,5 +1,4 @@
 import React from "react";
-import configEnv from "../../../configs/config.env";
 import classes from "./Section-Location-Component.module.css"
 
 const SectionLocationComponent = (props) => {

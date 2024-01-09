@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     dispath(authReload());
-  }, [])
+  }, [dispath])
 
   return (
     <div className="App">

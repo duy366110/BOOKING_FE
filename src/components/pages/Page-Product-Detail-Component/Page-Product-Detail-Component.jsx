@@ -19,13 +19,13 @@ const PageProductDetailComponent = (props) => {
 
     // PHƯƠNG THỨC LOAD THONG TIN CHI TIẾT HOTEL VÀ ROOM
     useEffect(() => {
-        let { status, message, hotel} = loader;
+        let { status, hotel} = loader;
         if(status) {
             setHotel(hotel);
             setRoom(hotel.rooms[0]);
         }
 
-    }, [])
+    }, [loader])
 
     // REDIRECT ĐẾN TRANG BOOK ROOM
     const redrectPageBookingHandler = (event) => {
@@ -62,7 +62,7 @@ const PageProductDetailComponent = (props) => {
                                     {room.images.length > 0 && room.images.map((photo, index) => {
                                         return (
                                             <div key={index} className={classes['photo-item']}>
-                                                <img src={photo} alt="photo" />
+                                                <img src={photo} alt="" />
                                             </div>
                                         )
                                     })}

@@ -13,12 +13,12 @@ const PageProductsComponent = (props) => {
 
     // PHƯƠNG THỨC LOAD THÔNG TIN HOTEL VÀ CÁC ROOM HIỆN CÓ
     useEffect(() => {
-        let {status, message, hotel} = loader;
+        let {status, hotel} = loader;
         if(status) {
             setHotel(hotel);
         }
 
-    }, [])
+    }, [loader])
 
     return (
         <div className={classes['page-product-component']}>

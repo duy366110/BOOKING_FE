@@ -9,7 +9,7 @@ const CommonHotelCardComponent = (props) => {
         <div className={classes['common-hotel-card-component']}>
             <Link to={`/products/${props.id}`}>
                 <div className={classes['card-photo']}>
-                    <img src={props.photo} alt="photo" />
+                    <img src={props.photo} alt="" />
                 </div>
                 <div className={classes['card-infor']}>
                     <h2 className={classes['title']}>{props.name}</h2>

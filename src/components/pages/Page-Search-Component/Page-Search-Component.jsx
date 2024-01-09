@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import configEnv from "../../../configs/config.env";
 import useHttp from "../../../hook/use-http";
@@ -30,7 +30,7 @@ const PageSearchComponent = (props) => {
     const changeRoomHandler = (event) => { setRoom(event.target.value) }
 
     // PHƯƠNG THỨC THỰC HIỆN TÌM KIẾM
-    const searchHandler = (payload) => {
+    const searchHandler = useCallback((payload) => {
         httpMethod({
             url: `${configEnv.URL}/api/search/hotel`,
             method: 'POST',
@@ -39,13 +39,13 @@ const PageSearchComponent = (props) => {
             customForm: false
         },
             (infor) => {
-            let { code, status, message, metadata: { rooms } } = infor;
+            let { status, metadata: { rooms } } = infor;
             
             if(status) {
                 setRooms(rooms);
             }
         })
-    }
+    }, [httpMethod])
 
     // THỰC HIỆN LOAD THÔNG TIN CẦN TÌM KIẾM
     useEffect(() => {
@@ -70,7 +70,7 @@ const PageSearchComponent = (props) => {
         localStorage.setItem('search', JSON.stringify(searchInfor));
         searchHandler(searchInfor);
 
-    }, [])
+    }, [search.data, searchHandler])
 
     // PHƯƠNG THỨC THỰC HIỆN TÌM KIẾM
     const serachHandler = (event) => {

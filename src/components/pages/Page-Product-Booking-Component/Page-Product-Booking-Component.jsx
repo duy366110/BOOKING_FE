@@ -43,7 +43,7 @@ const PageProductBookingComponent = (props) => {
     const [hotel, setHotel] = useState(null);
     const [room, setRoom] = useState(null);
 
-    const [submit, setSubmit] = useState(false);
+    // const [submit, setSubmit] = useState(false);
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [roomStatus, setRoomStatus] = useState(false);
@@ -51,7 +51,7 @@ const PageProductBookingComponent = (props) => {
 
     // THỰC HIỆN LOAD THÔNG TIN HOTEL - ROOM
     useEffect(() => {
-        let { status, message, hotel} = loader;
+        let { status, hotel} = loader;
 
         if(status && auth.infor.token) {
 
@@ -68,7 +68,14 @@ const PageProductBookingComponent = (props) => {
             navigate("/auth/signin");
         }
 
-    }, [])
+    }, [
+        loader, auth.infor.token,
+        auth.infor.fullname,
+        auth.infor.email,
+        auth.infor.phone,
+        navigate, fullNameDef,
+        emailDef, phoneDef
+    ])
 
     const selectDateBookingHandler = (date) => {
         let { startDate, endDate} = date;
@@ -130,15 +137,10 @@ const PageProductBookingComponent = (props) => {
             setRoomStatus(false);
         }
 
-
         if((fullNameValid.status && emailValid.status) &&
             (phoneValid.status && cardValid.status) && (paymentValid.status && quantityBooking) && roomNumbers) {
 
-                let user = localStorage.getItem('user');
-
                 if(auth.infor.token) {
-                    user = JSON.parse(user);
-
                     let booking = {
                         hotel: hotel._id,
                         room: room._id,
@@ -163,7 +165,7 @@ const PageProductBookingComponent = (props) => {
                         customForm: false
                     },
                     (information) => {
-                        let { status, message, infor } = information;
+                        let { status } = information;
         
                         if(status) {
                             navigate(`/transaction/${auth.infor.token}`);
@@ -185,7 +187,7 @@ const PageProductBookingComponent = (props) => {
             {/* FORM BOOKING */}
             <div className={classes['product-booking-wrapper']}>
                 <div className="container">
-                    { submit && !startDate && !endDate && (<h2 className={classes['booking-range-data-message']}>Place select data booking</h2>)}
+                    { !startDate && !endDate && (<h2 className={classes['booking-range-data-message']}>Place select data booking</h2>)}
                     <form onSubmit={bookingHandler}>
                         <div className="row">
                             <div className="col-12 col-md-6 col-lg-5 mb-5 mb-md-0">

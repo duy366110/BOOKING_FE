@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, {useRef } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import configEnv from "../../../configs/config.env";
@@ -43,7 +43,7 @@ const PageAuthSigninComponent = (props) => {
                 customForm: false
             },
             (information) => {
-                let { status, message, infor } = information;
+                let { status, infor } = information;
 
                 if(status) {
                     dispatch(authInfor({infor}));

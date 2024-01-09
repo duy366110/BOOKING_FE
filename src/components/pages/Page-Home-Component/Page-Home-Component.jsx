@@ -25,7 +25,7 @@ const PageHomeComponent = (props) => {
             setHotels(hotels);
         }
 
-    }, [])
+    }, [loader])
 
     return (
         <div className={classes['page-home-component']}>

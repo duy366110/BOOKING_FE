@@ -16,7 +16,7 @@ const PageTransactionComponent = (props) => {
     // THỰC HIỆN LOADER THÔNG TIN BÔKING TRANSACTION
     useEffect(() => {
         if(loader) {
-            let { status, message, bookings} = loader;
+            let { status, bookings} = loader;
             if(status && auth.infor.token) {
                 setBookings(bookings);
 
@@ -28,7 +28,7 @@ const PageTransactionComponent = (props) => {
             navigate("/");
         }
         
-    }, [])
+    }, [loader, auth.infor.token, navigate])
 
     return (
         <div className={classes['page-transaction-component']}>
