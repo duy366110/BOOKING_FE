@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useLoaderData } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import ENVIRONMENT from "../../../environment";
 import configEnv from "../../../configs/config.env";
-import { initLazy } from "../../../store/store-lazy";
-// import useLazy from "../../../hook/use-lazy";
+import { initLazy, updateLazyPage } from "../../../store/store-lazy";
 
 import SectionHeaderComponent from "../../sections/Section-Header-Component/Section-Header-Component";
 import SectionHeaderPosterComponent from "../../sections/Section-Header-Poster-Component/Section-Header-Poster-Component";
+import LocationCardComponent from "./Location-Card-Component/Location-Card-Component";
 import SectionFooterComponent from "../../sections/Section-Footer-Component/Section-Footer-Component";
 import classes from "./Page-Location-Component.module.css";
 
@@ -20,6 +20,8 @@ const PageLocationComponent = (props) => {
 
     const dispatch = useDispatch();
     const lazy = useSelector((state) => state.lazy);
+
+    const [location, setLocation] = useState([]);
 
     const worker = useMemo(() => {
         return  new Worker(ENVIRONMENT.WORKER);
@@ -48,7 +50,11 @@ const PageLocationComponent = (props) => {
                             })
         
                             worker.onmessage = (event) => {
-                                console.log(event.data);
+                                let {status, locations } = event.data;
+                                if(status) {
+                                    setLocation(locations);
+                                    dispatch(updateLazyPage({type: "location", id: start, locations}));
+                                }
                             }
                             observer.unobserve(entry.target);
                         }
@@ -81,10 +87,9 @@ const PageLocationComponent = (props) => {
                     <div id="wrapper" ref={wrapperRef}>
                         {lazy.location.pages.length > 0 && lazy.location.pages.map((elm, index) => {
                             return (
-                                <div
-                                    key={index}
-                                    data-start={elm.id}
-                                    className={classes['location-container']}></div>
+                                <div key={index} data-start={elm.id} className={classes['location-container']}>
+                                    <LocationCardComponent id={elm.id}/>
+                                </div>
                             )
                         })}
                     </div>
