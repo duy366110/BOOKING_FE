@@ -2,10 +2,10 @@ import ENVIRONMENT from "../environment";
 
 const Config = {
     DEV: {
-        URL: ENVIRONMENT.DEV.URL
+        URL: ENVIRONMENT.DEV.URL,
     },
     PRO: {
-        URL: ENVIRONMENT.PRO.URL
+        URL: ENVIRONMENT.PRO.URL,
     }
 }
 
