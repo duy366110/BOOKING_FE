@@ -3,57 +3,38 @@
     width: 100%;
 }
 
-.location-wrapper {
-    border-radius: 10px;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.thumbnail {
-    border-radius: 10px;
+.location-banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 285px;
-    overflow: hidden;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 450px;
+    padding: 2.5rem;
     width: 100%;
 }
 
-.thumbnail::after {
-    background-color: #00000014;
-    border-radius: 10px;
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
+.location-banner-infor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.thumbnail img {
-    height: 100%;
-    width: 100%;
-}
-
-.description {
-    bottom: 0px;
+.infor-title {
     color: #ffffff;
-    left: 0px;
-    padding: 10px 15px;
-    position: absolute;
-    width: 100%;
-}
-
-.name {
-    margin-bottom: 0px;
-    text-align: left;
-}
-
-.infor {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 3.5rem;
+    font-weight: 700;
     letter-spacing: .3px;
-    margin-bottom: 0px;
     text-align: left;
+    text-transform: capitalize;
+}
+
+.infor-sub-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    letter-spacing: .3px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
 }
