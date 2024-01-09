@@ -1,0 +1,37 @@
+.home-banner-component {
+    margin-bottom: 5rem;;
+    width: 100%;
+}
+
+.banner-discount {
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.banner-discount-thumb {
+    width: 185px;
+}
+
+.banner-discount-infor {
+    text-align: left;
+}
+
+.discount-infor-title {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
+
+.discount-infor-sub-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: .3px;
+    line-height: 1.5;
+    max-width: 395px;
+}

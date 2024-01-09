@@ -4,6 +4,8 @@ import { useLoaderData } from "react-router-dom";
 import ENVIRONMENT from "../../../environment";
 import configEnv from "../../../configs/config.env";
 
+import HomeBannerComponent from "./Home-Banner-Component/Home-Banner-Component";
+
 import SectionHeaderComponent from "../../sections/Section-Header-Component/Section-Header-Component";
 import SectionLocationComponent from "../../sections/Section-Location-Component/Section-Location-Component";
 import SectionCategoryComponent from "../../sections/Section-Category-Component/Section-Category-Component";
@@ -43,6 +45,8 @@ const PageHomeComponent = (props) => {
 
             {/* LIST HOTEL */}
             {hotels.length > 0 && (<SectionHotelComponent list={hotels} />)}
+
+            <HomeBannerComponent />
 
             {/* FOOTER */}
             <SectionFooterComponent />
