@@ -1,4 +1,4 @@
-import React from "react";
+import CommonButtonComponent from "../../Commons/Common-Button-Component/Common-Button-Component";
 import classes from "./Section-Location-Component.module.css"
 
 const SectionLocationComponent = (props) => {
@@ -6,22 +6,17 @@ const SectionLocationComponent = (props) => {
     return (
         <div className={classes['section-location-component']}>
             <div className="container">
-                <div className="row">
-                    {props.list.map((location) => {
-                        return (
-                            <div key={location._id} className="col-12 col-sm-6 col-lg-4">
-                                <div className={`${classes["location-wrapper"]}`}>
-                                    <div className={`${classes["thumbnail"]}`}>
-                                        <img src={location.images[0]} alt="introduction images"/>
-                                    </div>
-                                    <div className={`${classes["description"]}`}>
-                                        <h2 className={`${classes["name"]}`}>{location.title}</h2>
-                                        <p className={`${classes["infor"]}`}>{location.collections.length} properties</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    })}
+                <div
+                    className={classes['location-banner']}
+                    style={
+                        {backgroundImage: `linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 0 / 43%)), url("images/attraction.jpg")`}
+                    }>
+
+                    <div className={classes['location-banner-infor']}>
+                        <h2 className={classes['infor-title']}>Địa điểm nổi bật</h2>
+                        <h3 className={classes['infor-sub-title']}>Tận hưởng kỳ nghỉ tuyệt vời của bạn cùng gia đình</h3>
+                        <CommonButtonComponent name="Xem Thêm" />
+                    </div>
                 </div>
             </div>
         </div>

@@ -28,7 +28,6 @@ onmessage = async (event) => {
     switch(type) {
         case "get-home-page-infor":
         default:
-            console.log(options);
             let data = await Promise.allSettled([
                 process(options.location.url),
                 process(options.category.url),
