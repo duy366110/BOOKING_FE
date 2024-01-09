@@ -14,6 +14,7 @@ const PageCarRentalComponent = lazy(() => import("../components/pages/Page-Car-R
 const PageAttractionComponent = lazy(() => import("../components/pages/Page-Attraction-Component/Page-Attraction-Component"));
 const PageAiportTaxiComponent = lazy(() => import("../components/pages/Page-Aiport-Taxis-Component/Page-Aiport-Taxis-Component"));
 const PageExceptionComponent = lazy(() => import("../components/pages/Page-Exception-Component/Page-Exception-Component"));
+const PageLocationComponent = lazy(() => import("../components/pages/Page-Location-Component/Page-Location-Component"));
 
 // AUTH
 const PageAuthComponent = lazy(() => import("../components/Page-Auth/Page-Auth-Component"));
@@ -50,6 +51,11 @@ const Router = createBrowserRouter([
                 path: 'transaction/:token',
                 loader: ({request, params}) => import("../components/pages/Page-Transaction-Component/Page-Transaction-Component").then((m) => m.loader(request, params)),
                 element: <Suspense fallback={<p>Loading...</p>}><PageTransactionComponent /></Suspense>
+            },
+            {
+                path: "location",
+                loader: (() => import("../components/pages/Page-Location-Component/Page-Location-Component").then((m) => m.loader())),
+                element: <Suspense fallback={<p>Loading...</p>}><PageLocationComponent /></Suspense>
             },
             {
                 path: 'search',

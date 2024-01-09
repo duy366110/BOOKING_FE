@@ -1,0 +1,11 @@
+.location-main {
+    padding: 4rem 0rem;
+    width: 100%;
+}
+
+.location-container {
+    background-color: red;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100vh;
+}

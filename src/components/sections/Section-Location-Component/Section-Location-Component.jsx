@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import CommonButtonComponent from "../../Commons/Common-Button-Component/Common-Button-Component";
 import classes from "./Section-Location-Component.module.css"
 
 const SectionLocationComponent = (props) => {
+    const navigate = useNavigate();
+
+    const onRedirectLocationPageHandler = (event) => {
+        navigate("/location");
+    }
     
     return (
         <div className={classes['section-location-component']}>
@@ -15,7 +21,9 @@ const SectionLocationComponent = (props) => {
                     <div className={classes['location-banner-infor']}>
                         <h2 className={classes['infor-title']}>Địa điểm nổi bật</h2>
                         <h3 className={classes['infor-sub-title']}>Tận hưởng kỳ nghỉ tuyệt vời của bạn cùng gia đình</h3>
-                        <CommonButtonComponent name="Xem Thêm" />
+                        <CommonButtonComponent
+                            click={onRedirectLocationPageHandler}
+                            name="Xem Thêm" />
                     </div>
                 </div>
             </div>
