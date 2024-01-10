@@ -18,17 +18,14 @@ import classes from "./Page-Home-Component.module.css";
 const PageHomeComponent = (props) => {
     const loader = useLoaderData();
 
-    const [locations, setLocations] = useState([]);
     const [categories, setCategories] = useState([]);
     const [hotels, setHotels] = useState([]);
 
     useEffect(() => {
-        let { status, locations, categories, hotels } = loader;
+        let { status, categories, hotels } = loader;
 
         if(status) {
-            console.log(categories);
             setCategories(categories);
-            setLocations(locations);
             setHotels(hotels);
         }
 
@@ -40,7 +37,7 @@ const PageHomeComponent = (props) => {
             <SectionHeaderComponent />
 
             {/* LOCATION */}
-            {locations.length > 0 && (<SectionLocationComponent list={locations} />)}
+            <SectionLocationComponent />
 
             {/* CATEGORY */}
             <div className="container">
@@ -58,10 +55,10 @@ const PageHomeComponent = (props) => {
                 )}
             </div>
 
+            <HomeBannerComponent />
+
             {/* LIST HOTEL */}
             {hotels.length > 0 && (<SectionHotelComponent list={hotels} />)}
-
-            <HomeBannerComponent />
 
             {/* FOOTER */}
             <SectionFooterComponent />
@@ -79,9 +76,6 @@ export const loader = () => {
             worker.postMessage({
                 type: "get-home-page-infor",
                 options: {
-                    location: {
-                        url: `${configEnv.URL}/api/client/location`
-                    },
                     category: {
                         url: `${configEnv.URL}/api/client/category`
                     },
@@ -93,11 +87,10 @@ export const loader = () => {
 
             worker.onmessage = (event) => {
                 let [
-                    {value: {locations}},
                     {value: {categories}},
                     {value: {hotels}}
                 ] = event.data;
-                resolve({status: true , locations, categories, hotels});
+                resolve({status: true , categories, hotels});
             }
 
         } catch (error) {

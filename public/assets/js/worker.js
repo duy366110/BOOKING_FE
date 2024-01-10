@@ -40,7 +40,6 @@ onmessage = async (event) => {
         case "get-home-page-infor":
         default:
             data = await Promise.allSettled([
-                process(options.location.url),
                 process(options.category.url),
                 process(options.hotel.url),
             ])
