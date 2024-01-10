@@ -51,6 +51,29 @@ code {
   color: var(--first-color);
 }
 
+/* CAROUSEL */
+.slick-slide {
+  padding: 0rem 1rem;
+}
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev {
+  left: 25px!important;
+  z-index: 100;
+}
+
+.slick-next {
+  right: 25px!important;
+  z-index: 100;
+}
+
+.slick-prev::before, .slick-next::before {
+  color: #cdcdcd;
+  font-size: 30px;
+}
+
 /* DATE RANGER SEARCH */
 
 .rdrDayNumber, .rdrInRange, .rdrDay,  .rdrDay>span, .rdrStartEdge, .rdrEndEdge {
