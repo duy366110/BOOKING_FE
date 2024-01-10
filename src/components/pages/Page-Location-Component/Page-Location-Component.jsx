@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { useLoaderData } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -20,8 +20,6 @@ const PageLocationComponent = (props) => {
 
     const dispatch = useDispatch();
     const lazy = useSelector((state) => state.lazy);
-
-    const [location, setLocation] = useState([]);
 
     const worker = useMemo(() => {
         return  new Worker(ENVIRONMENT.WORKER);
@@ -52,7 +50,6 @@ const PageLocationComponent = (props) => {
                             worker.onmessage = (event) => {
                                 let {status, locations } = event.data;
                                 if(status) {
-                                    setLocation(locations);
                                     dispatch(updateLazyPage({type: "location", id: start, locations}));
                                 }
                             }
