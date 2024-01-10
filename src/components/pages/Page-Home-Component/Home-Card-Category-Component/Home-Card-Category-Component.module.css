@@ -1,3 +1,24 @@
 .home-category-component {
-    
+    display: flex;
+    position: relative;
+}
+
+.home-category-infor {
+    color: #ffffff;
+    bottom: 25px;
+    left: 25px;
+    position: absolute;
+    text-align: left;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: .3px;
+    text-transform: capitalize;
+}
+
+.sub-title {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
 }
