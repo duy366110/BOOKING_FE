@@ -33,11 +33,9 @@ const SectionCarouselComponent = (props) => {
 
     return (
         <div className={classes['section-carousel-component']}>
-            <div className="container">
-                <Slider {...settings}>
-                    {props.children}
-                </Slider>
-            </div>
+            <Slider {...settings}>
+              {props.children}
+            </Slider>
         </div>
     )
 }

@@ -43,15 +43,20 @@ const PageHomeComponent = (props) => {
             {locations.length > 0 && (<SectionLocationComponent list={locations} />)}
 
             {/* CATEGORY */}
-            {categories.length > 0 && (
-                <SectionCarouselComponent>
-                    {categories.map((category) => {
-                        return(
-                            <HomeCardCategoryComponent category={category}/>
-                        )
-                    })}
-                </SectionCarouselComponent>
-            )}
+            <div className="container">
+                <h2 className={classes['page-home-title']}>Loại hình thuê</h2>
+                <h3 className={classes['page-home-sub-title']}>Đa dạng loại hình lựa chọn</h3>
+            
+                {categories.length > 0 && (
+                    <SectionCarouselComponent>
+                        {categories.map((category) => {
+                            return(
+                                <HomeCardCategoryComponent category={category}/>
+                            )
+                        })}
+                    </SectionCarouselComponent>
+                )}
+            </div>
 
             {/* LIST HOTEL */}
             {hotels.length > 0 && (<SectionHotelComponent list={hotels} />)}
