@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import configEnv from "../../../configs/config.env";
-import useHttp from "../../../hook/use-http";
 import CommonButtonComponent from "../../Commons/Common-Button-Component/Common-Button-Component";
 import CommonSearchInputComponent from "../../Commons/Common-Search-Input-Component/Common-Search-Input-Component";
 import CommonSearchDateRangerComponent from "../../Commons/Common-Search-Date-Ranger-Component/Common-Search-Date-Ranger-Component";
@@ -12,8 +11,6 @@ import classes from "./Page-Search-Component.module.css";
 
 const PageSearchComponent = (props) => {
     const search = useSelector((state) => state.search);
-
-    const { httpMethod } = useHttp();
 
     const [rooms, setRooms] = useState([]);
     const [minPrice, setMinPrice] = useState(0);
@@ -31,21 +28,26 @@ const PageSearchComponent = (props) => {
 
     // PHƯƠNG THỨC THỰC HIỆN TÌM KIẾM
     const searchHandler = useCallback((payload) => {
-        httpMethod({
-            url: `${configEnv.URL}/api/search/hotel`,
-            method: 'POST',
-            author: '',
-            payload: JSON.stringify(payload),
-            customForm: false
-        },
-            (infor) => {
+        const searchFunc = async () => {
+            let res = await fetch(`${configEnv.URL}/api/search/hotel`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+
+            let infor = await res.json();
             let { status, metadata: { rooms } } = infor;
-            
             if(status) {
+                console.log(rooms);
                 setRooms(rooms);
             }
-        })
-    }, [httpMethod])
+
+        }
+        searchFunc();
+        
+    }, [])
 
     // THỰC HIỆN LOAD THÔNG TIN CẦN TÌM KIẾM
     useEffect(() => {
@@ -68,12 +70,12 @@ const PageSearchComponent = (props) => {
         }
 
         localStorage.setItem('search', JSON.stringify(searchInfor));
-        searchHandler(searchInfor);
 
+        searchHandler(searchInfor);
     }, [search.data, searchHandler])
 
     // PHƯƠNG THỨC THỰC HIỆN TÌM KIẾM
-    const serachHandler = (event) => {
+    const searchTabHandler = (event) => {
         event.preventDefault();
         let { location, startDate, endDate} = search.data;
 
@@ -85,7 +87,6 @@ const PageSearchComponent = (props) => {
         }
 
         searchHandler(searchInfor);
-
     }
 
     return (
@@ -96,7 +97,7 @@ const PageSearchComponent = (props) => {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-12 col-lg-4 mb-5 mb-lg-0">
-                            <form onSubmit={serachHandler}>
+                            <form onSubmit={searchTabHandler}>
                                 <div className={classes['search-tab']}>
                                     <div className={`${classes['search-tab-conteller']} mb-3`}>
                                         <label className={classes['search-tab-label']} htmlFor="destination">Destination</label>
